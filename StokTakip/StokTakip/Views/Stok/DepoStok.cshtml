@@ -1,0 +1,36 @@
+﻿@model IEnumerable<StokTakip.Models.Model.Stok>
+@{
+	ViewBag.Title = "DepoStok";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>DepoStok</h2>
+
+<a class="btn btn-default" href="/Stok/Create/">Yeni Ekle</a> <a class="btn btn-default" href="/Ara/Index/">Stok Ara</a>
+	<table class="table table-striped" id="myTable">
+		<thead>
+
+			<tr>
+				<th>Stok ID</th>
+				<th>Ürün Adı</th>
+				<th>Stok Adı</th>
+				<th>Stok Kodu</th>
+				<th>Stok Adeti</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.StokId</td>
+					<td>@item.UrunAdi</td>
+					<td>@item.StokAdi</td>
+					<td>@item.StokKodu</td>
+					<td>@item.StokAdet</td>
+
+					<td><a href="/Stok/Edit/@item.StokId">Güncelle</a>| <a href="/Stok/Delete/@item.StokId">Sil</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>

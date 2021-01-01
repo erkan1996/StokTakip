@@ -1,0 +1,47 @@
+﻿@model StokTakip.Models.Model.Depo
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+@using (Html.BeginForm("Edit", "Depo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+	@Html.AntiForgeryToken();
+
+	<div class="form-group ">
+		<label for="cname" class="control-label col-lg-2">Depo Adı <span class="required">*</span></label>
+		<div class="col-lg-10">
+			<input class="form-control" id="DepoAdi" name="DepoAdi"  type="text" value="@Model.DepoAdi" required />
+		</div>
+	</div>
+	<br />
+	<div class="form-group ">
+		<label for="cemail" class="control-label col-lg-2">Depo Adres <span class="required">*</span></label>
+		<div class="col-lg-10">
+			<input class="form-control" id="DepoAdres" name="DepoAdres"  type="text" value="@Model.DepoAdres" required />
+		</div>
+	</div>
+	<br />
+	<div class="form-group ">
+		<label for="curl" class="control-label col-lg-2">Telefon No</label>
+		<div class="col-lg-10">
+			<input class="form-control" id="TelNo" name="TelNo"  type="text"value="@Model.TelNo" required />
+		</div>
+	</div>
+	<br />
+
+	<div class="form-group">
+		<div class="col-lg-offset-2 col-lg-10">
+			<button class="btn btn-primary" type="submit">Güncelle</button>
+			<button class="btn btn-default" type="button"><a href="/Depo/Index">İptal</a> </button>
+		</div>
+	</div>
+
+
+
+}
+
+</div>
+

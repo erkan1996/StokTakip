@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StokTakip.Models.Model.Depo>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Depo Bilgileri</h2>
+<a class="btn btn-default" href="/Depo/Create/">Yeni Ekle</a>
+<table class="table table-striped" id="myTable">
+	<thead>
+		<!--  IEnumerable yazmanın sebebi burya seçili kayıt değil bütün kayıtlar geleceği için  -->
+		<tr>
+			<th>Depo ID</th>
+			<th>Depo Adı</th>
+			<th>Depo Adres</th>
+			<th>Telefon No</th>
+			<th>İşlemler</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.DepoId</td>
+				<td>@item.DepoAdi</td>
+				<td>@item.DepoAdres</td>
+				<td>@item.TelNo</td>
+				<td><a href="/Depo/Edit/@item.DepoId">Güncelle</a>| <a href="/Depo/Delete/@item.DepoId">Sil</a>|<a href="/Stok/DepoStok/@item.DepoId">Stok Bilgisi</a></td><!--buraya yazdığın delete edit controller içinde kodlayavcağın action ların ismi:) -->
+			</tr>
+		}
+	</tbody>
+</table>
+
+

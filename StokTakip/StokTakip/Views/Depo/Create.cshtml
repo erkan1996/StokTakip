@@ -1,0 +1,51 @@
+﻿
+@{
+	ViewBag.Title = "Create";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Depo Ekle</h2>
+<div class="form">
+
+
+	@using (Html.BeginForm("Create", "Depo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+
+		@Html.AntiForgeryToken();
+
+		<div class="form-group ">
+			<label for="cname" class="control-label col-lg-2">Depo Adı <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="DepoAdi" name="DepoAdi" minlength="5" type="text" required />
+			</div>
+		</div>
+		<br />
+		<div class="form-group ">
+			<label for="cemail" class="control-label col-lg-2">Depo Adres <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="DepoAdres" name="DepoAdres" minlength="5" type="text" required />
+			</div>
+		</div>
+		<br />
+		<div class="form-group ">
+			<label for="curl" class="control-label col-lg-2">Telefon No</label>
+			<div class="col-lg-10">
+				<input class="form-control" id="TelNo" name="TelNo" minlength="5" type="text" required />
+			</div>
+		</div>
+		<br />
+
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
+				<button class="btn btn-primary" type="submit">Ekle</button>
+				<button class="btn btn-default" type="button"><a href="/Depo/Index">İptal</a> </button>
+			</div>
+		</div>
+
+
+
+	}
+
+</div>
+

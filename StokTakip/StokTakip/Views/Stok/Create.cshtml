@@ -1,0 +1,63 @@
+﻿
+@{
+	ViewBag.Title = "Create";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Stok Kayıt Ekle</h2>
+<div class="form">
+
+
+	@using (Html.BeginForm("Create", "Stok", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+
+
+		@Html.AntiForgeryToken();
+
+		<div class="form-group ">
+			<label for="cname" class="control-label col-lg-2">Ürün Adı <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="UrunAdi" name="UrunAdi"  type="text" required />
+			</div>
+		</div>
+
+		<div class="form-group ">
+			<label for="cname" class="control-label col-lg-2">Stok Adı <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="StokAdi" name="StokAdi"  type="text" required />
+			</div>
+		</div>
+		<div class="form-group ">
+			<label for="cname" class="control-label col-lg-2">Stok Kodu <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="StokKodu" name="StokKodu"  type="text" required />
+			</div>
+		</div>
+		<div class="form-group ">
+			<label for="cname" class="control-label col-lg-2">Stok Adet <span class="required">*</span></label>
+			<div class="col-lg-10">
+				<input class="form-control" id="StokAdet" name="StokAdet"  type="text" required />
+			</div>
+		</div>
+		<div class="form-group ">
+			<label for="cemail" class="control-label col-lg-2">Depo Adı <span class="required">*</span></label>
+			<div class="col-lg-10">
+				@Html.DropDownList("DepoId", null, new { @class = "form-control" })
+			</div>
+		</div>
+	
+
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
+				<button class="btn btn-primary" type="submit">Ekle</button>
+				<button class="btn btn-default" type="button"><a href="/Stok/Index">İptal</a> </button>
+			</div>
+		</div>
+
+
+
+	}
+
+</div>
+

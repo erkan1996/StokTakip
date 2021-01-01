@@ -1,0 +1,58 @@
+﻿@model IEnumerable<StokTakip.Models.Model.Stok>
+@{
+	ViewBag.Title = "DepoStok";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Stok Ara</h2>
+<form class="form-validate form-horizontal" id="feedback_form" method="get" action="/Ara/Index">
+
+
+
+
+
+	<table class="table table-striped" id="myTable">
+		<tr>
+			<td>
+				<div class="form-group ">
+					<label for="cname" class="control-label col-lg-2">Stok Kodu <span class="required">*</span></label>
+					<div class="col-lg-10">
+						@Html.TextBox("k", null, new { @class = "form-control" })
+
+					</div>
+				</div>
+
+			</td>
+			<td><button type="submit" class="btn btn-primary">Ara</td>
+		</tr>
+	</table>
+</form>
+	<table class="table table-striped" id="myTable">
+		<thead>
+
+			<tr>
+				<th>Stok ID</th>
+				<th>Ürün Adı</th>
+				<th>Stok Adı</th>
+				<th>Stok Kodu</th>
+				<th>Stok Adeti</th>
+				<th></th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.StokId</td>
+					<td>@item.UrunAdi</td>
+					<td>@item.StokAdi</td>
+					<td>@item.StokKodu</td>
+					<td>@item.StokAdet</td>
+					<td>@item.Depo.DepoAdi</td>
+
+					<td><a href="/Stok/Edit/@item.StokId">Güncelle</a>| <a href="/Stok/Delete/@item.StokId">Sil</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
